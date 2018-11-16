@@ -24,7 +24,7 @@ namespace Rocket {
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices (IServiceCollection services) {
             services.AddDbContext<val_interventionsContext> (opt =>
-                opt.UseMySql ("server=codeboxx.cq6zrczewpu2.us-east-1.rds.amazonaws.com;database=david_app;user=codeboxx;password=Codeboxx1!;"));
+                opt.UseMySql ("server=codeboxx.cq6zrczewpu2.us-east-1.rds.amazonaws.com;database=val_interventions;user=codeboxx;password=Codeboxx1!;"));
             services.AddMvc ().SetCompatibilityVersion (CompatibilityVersion.Version_2_1);
         }
 

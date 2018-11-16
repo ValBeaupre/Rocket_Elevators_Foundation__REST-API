@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Rocket.Models {
-    public partial class BuildingDetails {
+namespace Rocket.Models
+{
+    public partial class BuildingDetails
+    {
         public long Id { get; set; }
         public long? BuildingId { get; set; }
         public string InformationKey { get; set; }

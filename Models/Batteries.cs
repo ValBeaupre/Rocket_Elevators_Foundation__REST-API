@@ -1,10 +1,14 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Rocket.Models {
-    public partial class Batteries {
-        public Batteries () {
-            Columns = new HashSet<Columns> ();
+namespace Rocket.Models
+{
+    public partial class Batteries
+    {
+        public Batteries()
+        {
+            Columns = new HashSet<Columns>();
+            Interventions = new HashSet<Interventions>();
         }
 
         public long Id { get; set; }
@@ -23,5 +27,6 @@ namespace Rocket.Models {
         public Buildings Building { get; set; }
         public Employees Employee { get; set; }
         public ICollection<Columns> Columns { get; set; }
+        public ICollection<Interventions> Interventions { get; set; }
     }
 }

@@ -1,8 +1,15 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Rocket.Models {
-    public partial class Elevators {
+namespace Rocket.Models
+{
+    public partial class Elevators
+    {
+        public Elevators()
+        {
+            Interventions = new HashSet<Interventions>();
+        }
+
         public long Id { get; set; }
         public long? ColumnId { get; set; }
         public int? SerialNumber { get; set; }
@@ -18,5 +25,6 @@ namespace Rocket.Models {
         public DateTime UpdatedAt { get; set; }
 
         public Columns Column { get; set; }
+        public ICollection<Interventions> Interventions { get; set; }
     }
 }

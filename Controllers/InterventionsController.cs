@@ -25,7 +25,7 @@ namespace Rocket.Controllers {
         //     var json = new JObject ();
         //     json["status"] = item.Status;
         //     return Content (json.ToString (), "application/json");
-        }
+        // }
 
         // GET api/elevators/list
         [HttpGet]
@@ -34,11 +34,12 @@ namespace Rocket.Controllers {
             if (list == null) {
                 return NotFound ("Not Found");
             }
+
             List<Interventions> list_pending = new List<Interventions> ();
 
-            foreach (var i in list) {
+            foreach (var i in list) { 
 
-                if (i.Status == "Pending") {
+                if (i.Status == "Pending" && i.InterventionStartTime == "NULL") {
                     list_pending.Add (i);
                 }
             }
