@@ -600,11 +600,11 @@ namespace Rocket.Models
 
                 entity.Property(e => e.InterventionEndTime)
                     .HasColumnName("interventionEndTime")
-                    .HasColumnType("datetime");
+                    .HasColumnType("varchar(255)");
 
                 entity.Property(e => e.InterventionStartTime)
                     .HasColumnName("interventionStartTime")
-                    .HasColumnType("datetime");
+                    .HasColumnType("varchar(255)");
 
                 entity.Property(e => e.Report)
                     .HasColumnName("report")

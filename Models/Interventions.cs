@@ -13,8 +13,8 @@ namespace Rocket.Models
         public long? ColumnId { get; set; }
         public long? ElevatorId { get; set; }
         public long? EmployeeId { get; set; }
-        public DateTime? InterventionStartTime { get; set; }
-        public DateTime? InterventionEndTime { get; set; }
+        public string InterventionStartTime { get; set; }
+        public string InterventionEndTime { get; set; }
         public string Result { get; set; }
         public string Report { get; set; }
         public string Status { get; set; }

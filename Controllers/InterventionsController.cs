@@ -15,19 +15,8 @@ namespace Rocket.Controllers {
             _context = context;
         }
 
-        // // GET api/interventions/5
-        // [HttpGet ("{id}")]
-        // public ActionResult GetById (string Status, long id) {
-        //     var item = _context.Interventions.Find (id);
-        //     if (item == null) {
-        //         return NotFound ("Not found");
-        //     }
-        //     var json = new JObject ();
-        //     json["status"] = item.Status;
-        //     return Content (json.ToString (), "application/json");
-        // }
 
-        // GET api/elevators/list
+        // GET api/elevators/list to get all the interventions "Pending" with NO Starting Time
         [HttpGet]
         public ActionResult<List<Interventions>> GetAll () {
             var list = _context.Interventions.ToList ();
@@ -39,41 +28,49 @@ namespace Rocket.Controllers {
 
             foreach (var i in list) { 
 
-                if (i.Status == "Pending" && i.InterventionStartTime == "NULL") {
+                if ((i.Status == "Pending") && (i.InterventionStartTime == null)) {
                     list_pending.Add (i);
                 }
             }
             return list_pending;
         }
 
-        // PUT api/interventions/5
-        [HttpPut ("{id}")]
-        public ActionResult Update (long id, Interventions intervention) {
+
+        // PUT api/interventions/inprogress/id : to change the status of the intervention specified
+        [HttpPut ("inprogress/{id}")]
+        public string UpdateInProgress (long id, Interventions intervention) {
             var intrv = _context.Interventions.Find (id);
             if (intrv == null) {
-                return NotFound ();
+                return "Please enter an existing intervention id" ;
             }
 
-            intrv.Status = intervention.Status;
+            string InterventionStartTime = DateTime.Now.ToString("yyyy/MM/dd/ H:mm:ss");
+            intrv.InterventionStartTime = InterventionStartTime;
+
+            intrv.Status = "In Progress";
 
             _context.Interventions.Update (intrv);
             _context.SaveChanges ();
-            return NoContent ();
+            return "The intervention #" + intrv.Id + " status has been successufully changed to In Progress at " + intrv.InterventionStartTime;
         }
 
-        // // PUT api/interventions/5
-        // [HttpPut ("{id}")]
-        // public ActionResult Update (long id, Interventions intervention) {
-        //     var intrv = _context.Interventions.Find (id);
-        //     if (intrv == null) {
-        //         return NotFound ();
-        //     }
 
-        //     intrv.Status = intervention.Status;
+        // PUT api/interventions/completed/id : to update the status once the intervention is done
+        [HttpPut ("completed{id}")]
+        public string UpdateCompleted (long id, Interventions intervention) {
+            var intrv = _context.Interventions.Find (id);
+            if (intrv == null) {
+                return "Please enter an existing intervention id" ;
+            }
 
-        //     _context.Interventions.Update (intrv);
-        //     _context.SaveChanges ();
-        //     return NoContent ();
-        // }
+            string InterventionEndTime = DateTime.Now.ToString("yyyy/MM/dd/ H:mm:ss");
+            intrv.InterventionEndTime = InterventionEndTime;
+
+            intrv.Status = "Completed";
+
+            _context.Interventions.Update (intrv);
+            _context.SaveChanges ();
+            return "The intervention #" + intrv.Id + " status has been successufully changed to Completed at " + intrv.InterventionEndTime;
+        }
     }
 }
