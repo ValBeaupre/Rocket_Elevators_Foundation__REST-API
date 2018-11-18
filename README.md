@@ -1,6 +1,8 @@
-# Rocket // Odyssey Week 8
+# Rocket // Skills Consolidation // Odyssey Week 8
 
-### Rocket Elevators New REST API
+## Rocket Elevators Foundation - REST API
+
+### Interventions Management
 
 ### **All the "GET" endpoints can be viewed in the browser at this adress, adding the specific endpoint at the end of this url :** https://rocketfoundationrestapi.azurewebsites.net/api/interventions
 
