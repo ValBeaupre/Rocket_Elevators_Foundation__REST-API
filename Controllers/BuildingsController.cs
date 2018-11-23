@@ -5,10 +5,9 @@ using Newtonsoft.Json.Linq;
 using Rocket.Models;
 
 namespace Rocket.Controllers {
-
     [Route ("api/buildings")]
     [ApiController]
-    public class BuildingsControllers : ControllerBase {
+    public class BuildingsController : ControllerBase {
         private readonly val_interventionsContext _context;
 
         public BuildingsControllers (val_interventionsContext context) {
@@ -56,5 +55,13 @@ namespace Rocket.Controllers {
             }
             return list_buildings_intervention;
         }
+
+        // GET api/buildings/all
+        [HttpGet("all")]
+
+        public ActionResult<List<Buildings>> GetAll(){
+           return context.Buildings.ToList();
+        }
+        
     }
 }
