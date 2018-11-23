@@ -12,7 +12,15 @@ namespace Rocket.Controllers {
             _context = context;
         }
 
-        // GET api/batteries/5
+
+        // GET api/batteries/all : to get the full battery list
+        [HttpGet ("all")]
+        public ActionResult<List<Batteries>> GetAll () {
+            return _context.Batteries.ToList ();
+        }
+
+
+        // GET api/batteries/5 : to get a specific battery status
         [HttpGet ("{id}")]
         public ActionResult GetById (string Status, long id) {
             var item = _context.Batteries.Find (id);
@@ -24,7 +32,7 @@ namespace Rocket.Controllers {
             return Content (json.ToString (), "application/json");
         }
 
-        // PUT api/batteries/5
+        // PUT api/batteries/5 : to change a specific battery status
         [HttpPut ("{id}")]
         public ActionResult Update (long id, Batteries battery) {
             var bat = _context.Batteries.Find (id);
