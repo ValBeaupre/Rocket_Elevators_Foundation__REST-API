@@ -55,7 +55,7 @@ namespace Rocket.Controllers {
                     list_buildings_intervention.Add (found_building);
                 }
             }
-            return list_buildings_intervention.ToList();
+            return list_buildings_intervention;
         }
 
 
