@@ -60,7 +60,7 @@ namespace Rocket.Controllers {
         [HttpGet("all")]
 
         public ActionResult<List<Buildings>> GetAll(){
-           return context.Buildings.ToList();
+           return _context.Buildings.ToList();
         }
         
     }
