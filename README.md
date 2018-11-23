@@ -1,6 +1,4 @@
-# Rocket // Skills Consolidation // Odyssey Week 8
-
-## Rocket Elevators Foundation - REST API
+# Rocket Elevators Foundation - REST API
 
 ### Interventions Management
 
