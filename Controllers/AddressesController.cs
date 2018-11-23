@@ -9,47 +9,25 @@ using Rocket.Models;
 namespace Rocket.Controllers {
     [Route ("api/addresses")]
     [ApiController]
-    public class InterventionsController : ControllerBase {
+    public class AddressesController : ControllerBase {
         private readonly val_interventionsContext _context;
-        public InterventionsController (val_interventionsContext context) {
+        public AddressesController (val_interventionsContext context) {
             _context = context;
         }
 
 
-        // GET api/interventions : to get the full intervention list
-        [HttpGet]
-        public ActionResult<List<Interventions>> GetAll () {
-            return _context.Interventions.ToList ();
-        }
+       // GET api/addresses/all : to get the full addresses list
+       [HttpGet ("all")]
+       public ActionResult<List<Addresses>> GetAll() {
+           return _context.Addresses.ToList();
+       }
 
 
-        // GET api/interventions/pending : to get the intervention list with the "Pending" status and NO Starting Time
-        [HttpGet ("pending")]
-        public ActionResult<List<Interventions>> GetPending () {
-            var list = _context.Interventions.ToList ();
-            if (list == null) {
-                return NotFound ("Not Found");
-            }
-
-            List<Interventions> list_pending = new List<Interventions> ();
-
-            foreach (var i in list) { 
-
-                if ((i.Status == "Pending") && (i.InterventionStartTime == null)) {
-                    list_pending.Add (i);
-                }
-            }
-            return list_pending;
-        }
+       // GET api/addresses/cities : to get the building's cities list
+       [HttpGet ("cities")]
+       public ActionResult<List<string>> GetCities() {
+           var cities = _context.Addresses.Where(a => _context.Buildings.Select(b => b.AddressId).Contains(a.Id)).Select(c => c.City).Distinct();
+           return cities.ToList();
+       }
     }
 }
-
-// public class BuildingController : Controller
-//    {
-//        private jpContext dbContext = new jpContext();
-//        [HttpGet]
-//        public ActionResult<List<Buildings>> GetAll()
-//        {
-//            return dbContext.Buildings.ToList();
-//        }
-//    }

@@ -3,20 +3,22 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Newtonsoft.Json.Linq;
 using Rocket.Models;
+using System;
+using System.Linq;
 
 namespace Rocket.Controllers {
     [Route ("api/buildings")]
     [ApiController]
     public class BuildingsController : ControllerBase {
         private readonly val_interventionsContext _context;
-
-        public BuildingsControllers (val_interventionsContext context) {
+        public BuildingsController (val_interventionsContext context) {
             _context = context;
         }
 
-        // GET api/buildings
-        [HttpGet]
-        public ActionResult<List<Buildings>> GetAll () {
+
+        // GET api/buildings/list
+        [HttpGet ("list")]
+        public ActionResult<List<Buildings>> GetList () {
             var list = _context.Buildings
                 .Include (bu => bu.Batteries)
                 .ThenInclude (b => b.Columns)
@@ -56,12 +58,11 @@ namespace Rocket.Controllers {
             return list_buildings_intervention;
         }
 
+
         // GET api/buildings/all
         [HttpGet("all")]
-
         public ActionResult<List<Buildings>> GetAll(){
            return _context.Buildings.ToList();
         }
-        
     }
 }

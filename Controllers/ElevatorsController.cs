@@ -15,20 +15,9 @@ namespace Rocket.Controllers {
             _context = context;
         }
 
-        // GET api/elevators/5
-        [HttpGet ("{id}", Name = "GetElevators")]
-        public ActionResult GetById (string Status, long id) {
-            var item = _context.Elevators.Find (id);
-            if (item == null) {
-                return NotFound ("Not Found");
-            }
-            var json = new JObject ();
-            json["status"] = item.Status;
-            return Content (json.ToString (), "application/json");
-        }
 
         // GET api/elevators/list
-        [HttpGet]
+        [HttpGet ("list")]
         public ActionResult<List<Elevators>> GetAll () {
             var list = _context.Elevators.ToList ();
             if (list == null) {
@@ -44,6 +33,20 @@ namespace Rocket.Controllers {
             }
             return list_alarm_inac;
         }
+
+
+        // GET api/elevators/5
+        [HttpGet ("{id}", Name = "GetElevators")]
+        public ActionResult GetById (string Status, long id) {
+            var item = _context.Elevators.Find (id);
+            if (item == null) {
+                return NotFound ("Not Found");
+            }
+            var json = new JObject ();
+            json["status"] = item.Status;
+            return Content (json.ToString (), "application/json");
+        }
+
 
         // PUT api/elevators/5
         [HttpPut ("{id}")]

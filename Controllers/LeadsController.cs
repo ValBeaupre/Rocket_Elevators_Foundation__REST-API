@@ -14,8 +14,9 @@ namespace Rocket.Controllers {
             _context = context;
         }
 
+
         // GET api/leads
-        [HttpGet]
+        [HttpGet ("list")]
         public ActionResult<List<Leads>> GetAll () {
             var listl = _context.Leads.Include (le => le.Customers);
 
