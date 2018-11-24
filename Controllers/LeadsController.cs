@@ -24,7 +24,7 @@ namespace Rocket.Controllers {
 
         // GET api/leads/list : to get the last 30 days leads
         [HttpGet ("list")]
-        public ActionResult<List<Leads>> GetAll () {
+        public ActionResult<List<Leads>> GetList () {
             var listl = _context.Leads.Include (le => le.Customers);
 
             if (listl == null) {
