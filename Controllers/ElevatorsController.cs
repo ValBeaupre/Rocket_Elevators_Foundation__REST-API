@@ -15,10 +15,17 @@ namespace Rocket.Controllers {
             _context = context;
         }
 
+        
+        // GET api/elevators/all : to get the full elevators list
+        [HttpGet ("all")]
+        public ActionResult<List<Elevators>> GetAll () {
+            return _context.Elevators.ToList ();
+        }
+
 
         // GET api/elevators/list
         [HttpGet ("list")]
-        public ActionResult<List<Elevators>> GetAll () {
+        public ActionResult<List<Elevators>> GetList () {
             var list = _context.Elevators.ToList ();
             if (list == null) {
                 return NotFound ("Not Found");
