@@ -15,7 +15,14 @@ namespace Rocket.Controllers {
         }
 
 
-        // GET api/leads
+        // GET api/leads/all : to get the full lead list
+        [HttpGet ("all")]
+        public ActionResult<List<Leads>> GetAll () {
+            return _context.Leads.ToList ();
+        }
+
+
+        // GET api/leads/list : to get the last 30 days leads
         [HttpGet ("list")]
         public ActionResult<List<Leads>> GetAll () {
             var listl = _context.Leads.Include (le => le.Customers);
