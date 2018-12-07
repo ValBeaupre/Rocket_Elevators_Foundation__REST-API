@@ -8,9 +8,9 @@ namespace Rocket.Controllers {
     [Route ("api/columns")]
     [ApiController]
     public class ColumnsController : ControllerBase {
-        private readonly val_interventionsContext _context;
+        private readonly valerieContext _context;
 
-        public ColumnsController (val_interventionsContext context) {
+        public ColumnsController (valerieContext context) {
             _context = context;
         }
 

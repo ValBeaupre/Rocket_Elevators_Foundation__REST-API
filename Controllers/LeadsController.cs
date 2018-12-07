@@ -9,8 +9,8 @@ namespace Rocket.Controllers {
     [Route ("api/leads")]
     [ApiController]
     public class LeadsController : ControllerBase {
-        private readonly val_interventionsContext _context;
-        public LeadsController (val_interventionsContext context) {
+        private readonly valerieContext _context;
+        public LeadsController (valerieContext context) {
             _context = context;
         }
 

@@ -10,8 +10,8 @@ namespace Rocket.Controllers {
     [Route ("api/buildings")]
     [ApiController]
     public class BuildingsController : ControllerBase {
-        private readonly val_interventionsContext _context;
-        public BuildingsController (val_interventionsContext context) {
+        private readonly valerieContext _context;
+        public BuildingsController (valerieContext context) {
             _context = context;
         }
 

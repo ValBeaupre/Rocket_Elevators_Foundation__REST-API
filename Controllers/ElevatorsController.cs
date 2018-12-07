@@ -9,9 +9,9 @@ namespace Rocket.Controllers {
     [Route ("api/elevators")]
     [ApiController]
     public class ElevatorsControllers : ControllerBase {
-        private readonly val_interventionsContext _context;
+        private readonly valerieContext _context;
 
-        public ElevatorsControllers (val_interventionsContext context) {
+        public ElevatorsControllers (valerieContext context) {
             _context = context;
         }
 

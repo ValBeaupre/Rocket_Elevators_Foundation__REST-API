@@ -10,9 +10,9 @@ namespace Rocket.Controllers {
     [Route ("api/batteries")]
     [ApiController]
     public class BatteriesController : ControllerBase {
-        private readonly val_interventionsContext _context;
+        private readonly valerieContext _context;
 
-        public BatteriesController (val_interventionsContext context) {
+        public BatteriesController (valerieContext context) {
             _context = context;
         }
 
