@@ -8,7 +8,7 @@
 
 #### 1- _To Get the full intervention list, do_ : </br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**GET** https://rocketfoundationrestapi.azurewebsites.net/api/interventions </br> &nbsp;&nbsp;&nbsp;&nbsp;**SEND** </br>
+&nbsp;&nbsp;&nbsp;&nbsp;**GET** https://rocketfoundationrestapi.azurewebsites.net/api/interventions/all </br> &nbsp;&nbsp;&nbsp;&nbsp;**SEND** </br>
 
 #### 2- _To Get the intervention list with the "Pending" status and NO Starting Time, do_ : </br>
 
