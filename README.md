@@ -20,17 +20,17 @@
 
 #### 4- _To Get a specified intervention current status, do_ : </br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**GET** https://rocketfoundationrestapi.azurewebsites.net/api/interventions/33 _[33 = specified battery ID]_ </br> &nbsp;&nbsp;&nbsp;&nbsp;**SEND** </br>
+&nbsp;&nbsp;&nbsp;&nbsp;**GET** https://rocketfoundationrestapi.azurewebsites.net/api/interventions/12 _[12 = specified intervention ID]_ </br> &nbsp;&nbsp;&nbsp;&nbsp;**SEND** </br>
 
 #### 5- _To Modify a specified intervention status from "Pending" to "In Progress" with a starting time, do_ : </br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**PUT** https://rocketfoundationrestapi.azurewebsites.net/api/interventions/inprogress/33 _[33 = specified battery ID]_ </br> &nbsp;&nbsp;&nbsp;&nbsp;**SEND** </br>
+&nbsp;&nbsp;&nbsp;&nbsp;**PUT** https://rocketfoundationrestapi.azurewebsites.net/api/interventions/inprogress/12 _[12 = specified intervention ID]_ </br> &nbsp;&nbsp;&nbsp;&nbsp;**SEND** </br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;You can verify if the change succeeded by doing a new GET on that specified Intervention (step #4). </br>
 
 #### 6- _To Modify a specified intervention status from "In Progress" to "Completed" with an ending time, do_ : </br>
 
-&nbsp;&nbsp;&nbsp;&nbsp;**PUT** https://rocketfoundationrestapi.azurewebsites.net/api/interventions/completed/33 _[33 = specified battery ID]_ </br> &nbsp;&nbsp;&nbsp;&nbsp;**SEND** </br>
+&nbsp;&nbsp;&nbsp;&nbsp;**PUT** https://rocketfoundationrestapi.azurewebsites.net/api/interventions/completed/12 _[12 = specified intervention ID]_ </br> &nbsp;&nbsp;&nbsp;&nbsp;**SEND** </br>
 
 &nbsp;&nbsp;&nbsp;&nbsp;You can verify if the change succeeded by doing a new GET on that specified Intervention (step #4).
 
