@@ -16,7 +16,7 @@ namespace Rocket.Controllers {
         }
 
 
-        // GET api/interventions : to get the full intervention list
+        // GET api/interventions/all : to get the full intervention list
         [HttpGet ("all")]
         public ActionResult<List<Interventions>> GetAll () {
             return _context.Interventions.ToList ();
